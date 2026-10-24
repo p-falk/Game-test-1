@@ -5,10 +5,22 @@ const questions = [
 
 let current = 0, score = 0;
 
+function getBest() {
+  return parseInt(localStorage.getItem("quizBest") || 0, 10);
+}
+
+function saveScore() {
+  if (score > getBest()) localStorage.setItem("quizBest", score);
+}
+
 function showQuestion() {
   const quiz = document.getElementById("quiz");
   if (current >= questions.length) {
-    quiz.innerHTML = `<h2>Done! Score: ${score}/${questions.length}</h2>`;
+    saveScore();
+    const best = getBest();
+    const isNew = score === best && score > 0 ? " 🎉 New best!" : "";
+    quiz.innerHTML = `<h2>Done! Score: ${score}/${questions.length}</h2>
+                      <p>Best score: ${best}/${questions.length}${isNew}</p>`;
     return;
   }
   const item = questions[current];
