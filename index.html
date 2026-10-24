@@ -2,13 +2,16 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>My Quiz</title>
-  <link rel="stylesheet" href="style.css">
+  <title>SCB Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    #map { height: 100vh; }
+  </style>
 </head>
 <body>
-  <h1>Quiz Time!</h1>
-  <div id="quiz"></div>
-  <button id="next">Next question</button>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
